@@ -1,5 +1,6 @@
 import ProductList from "./productlist";
 
+
 export default function Chips ({categories, onSelectCategory, selectedCategory}){
 
     function handleClick(category){

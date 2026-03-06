@@ -1,4 +1,5 @@
-export default function AddToCart(){
+import API from "../api/axios";
+export default function AddToCart({product}) {
     const addToCart = async() => {
         try{const response= await fetch("http://localhost:5000/cart",
           {

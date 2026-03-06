@@ -6,6 +6,7 @@
   background-color: #F5F5F5;
   min-width: 100vw;
   min-height: 100vh;
+  color: black;
 }
 
 .nav{
@@ -173,8 +174,4 @@ a{
   background: #2563eb;
   color: white;
   border-color: #2563eb;
-}
-
-.chips-container {
-
 }

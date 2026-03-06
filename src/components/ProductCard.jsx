@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
       <p className="description">{product.description}</p>
       <span className="price">${product.price}</span>
       <Link to={`/product/${product._id}`}>View</Link>
-      <AddToCart/>
+      <AddToCart product={product}/>
     </div>
   );
 }
