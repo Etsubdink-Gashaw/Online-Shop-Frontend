@@ -36,10 +36,18 @@ export default function OrderButton({setCartItems}) {
     }; 
     if (success) {
         // navigate("/orders");
-            return <h2>Your order has been placed!</h2>;
-            alert(<h1>🎉 Order Placed Successfully!</h1>
-                <p>Thank you for your purchase.</p>)
-          }
+        alert("🎉 Order Placed Successfully!\nThank you for your purchase.");
+                        return (
+                            <div>
+                                <h2>Your order has been placed!</h2>
+                                <button>Continue shopping</button>
+                            </div>
+                        );
+                    } else if (!success && !loading) {
+
+                    return <h2>❌ Order failed</h2>;
+    }
+    
     return (
         <button onClick={handleOrder} disabled={loading}>
       {loading ? "Placing Order..." : "Place Order"}
