@@ -2,6 +2,7 @@ import API from "../api/axios.js";
 import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar.jsx";
 import CartItems from "../components/cartItems.jsx";
+import CheckOut from "../components/checkOut.jsx";
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -22,9 +23,10 @@ export default function Cart() {
 
   return (
     <div className="page">
-      <Navbar />
-      <h2>Shopping Cart</h2>
-
+      <Navbar /> 
+      <h2 style={{ margin: '20px' }}>Shopping Cart</h2>
+      <div className="cart-page">
+      
       {loading ? (
         <p>Loading cart...</p>
       ) : cartItems.length === 0 ? (
@@ -32,6 +34,9 @@ export default function Cart() {
       ) : (
         <CartItems items={cartItems} />
       )}
+      <CheckOut items={cartItems} setCartItems={setCartItems} />
+      </div>
+      
     </div>
   );
 }
