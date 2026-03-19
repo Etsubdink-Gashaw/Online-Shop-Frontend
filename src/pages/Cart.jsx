@@ -13,7 +13,6 @@ export default function Cart() {
       .then((res) => {
         console.log("API response:", res.data);
 
-        // safe access
         const items = res.data?.data?.items || [];
         setCartItems(items);
       })
@@ -25,8 +24,8 @@ export default function Cart() {
     <div className="page">
       <Navbar /> 
       <h2 style={{ margin: '20px' }}>Shopping Cart</h2>
-      <div className="cart-page">
-      
+      <a href="/orders" style={{textAlign: 'right', marginRight: '200px'}}>View Orders</a>
+      <div className="cart-page">     
       {loading ? (
         <p>Loading cart...</p>
       ) : cartItems.length === 0 ? (

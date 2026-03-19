@@ -1,10 +1,13 @@
 import defaultImage from "../assets/product.png";
+import RemoveButton from "./removeButton";
 export default function CartItems({items,}){
   return (
     <div className="cart-items">
       {items.map(item => (
         <div key={item.product?._id} className="cart-item">
+         
           <div className="cart-item-image-container">
+          
           <img
   src={`http://localhost:5000/${item.product?.image}`}
   alt={item.product?.name}
@@ -12,9 +15,11 @@ export default function CartItems({items,}){
   className="cart-item-image"
 />
           </div>
+          
           <div className="cart-item-info">
            <h4>{item.product.name}</h4>
             <p>Quantity: {item.quantity}</p></div> 
+            <RemoveButton itemId={item.product?._id} />
         </div>
       ))}
 

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import API from "../api/axios.js";
 export default function OrderButton({setCartItems}) {
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
     const handleOrder= async()=> {
         try{
@@ -21,31 +21,32 @@ export default function OrderButton({setCartItems}) {
                 console.log("Success condition met, setting success to true");
                 alert("✅ Order placed!");
                 setSuccess(true);
-                // Delay clearing cart to allow success message to show
-                setTimeout(() => setCartItems([]), 100);
               } else {
                 console.log("Success condition not met");
+                setSuccess(false);
               }
 
         }catch(error){
             console.error("Error placing order.",error);
+            setSuccess(false);
+
         }
         finally {
             setLoading(false);
           }      
     }; 
-    if (success) {
-        // navigate("/orders");
-        alert("🎉 Order Placed Successfully!\nThank you for your purchase.");
-                        return (
-                            <div>
-                                <h2>Your order has been placed!</h2>
-                                <button>Continue shopping</button>
-                            </div>
-                        );
-                    } else if (!success && !loading) {
-
-                    return <h2>❌ Order failed</h2>;
+    if (success === true) {
+      return (
+        <div>
+          <h2>Your order has been placed!</h2>
+          <button onClick={() => {setCartItems([]); navigate("/");}}>Continue shopping</button>
+           or 
+           <button onClick={() => {setCartItems([]); navigate("/orders");}}>View Orders</button>
+        </div>
+      );
+    } 
+    if (success === false) {
+       return <h2>❌ Order failed</h2>;
     }
     
     return (

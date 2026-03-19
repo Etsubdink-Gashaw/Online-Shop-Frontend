@@ -4,6 +4,7 @@ import Cart from "./pages/Cart";
 import Categories from "./pages/Categories";
 import ProductDetails from "./pages/Products";
 import './App.css'
+import Orders from "./pages/Orders";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="*" element={<h2>404 Not Found</h2>} />
+
       </Routes>
     </Router>
   );
