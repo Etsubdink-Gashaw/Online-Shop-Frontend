@@ -41,7 +41,7 @@ useEffect(()=>{
   return (
     <div className="page">
       <Navbar />
-      <h3>Categories</h3>
+      
       <Chips categories={categories} onSelectCategory={setSelectedCategory} selectedCategory={selectedCategory}/>
       <ProductList products={products}/>
     </div>
